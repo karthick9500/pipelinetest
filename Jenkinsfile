@@ -9,10 +9,12 @@ pipeline {
 
 
     stage('test') {
+      steps {
       script {
         sh "ls -la"
       }
     }
+  }
 
      }
   }
