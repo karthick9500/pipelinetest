@@ -6,10 +6,10 @@ pipeline {
 
   stages {
 
-
+steps {
 
     stage('test') {
-      steps {
+
       script {
         sh "ls -la"
       }
