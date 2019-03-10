@@ -48,7 +48,7 @@ pipeline {
               when {
                   environment name: 'DEPLOY_TO_SIT', value: 'true'
               }
-                    steps {
+                  steps {
 
                             script {
 
@@ -56,11 +56,8 @@ pipeline {
                                   println "Done"
 
                             }
-                        }
                     }
-                }
-
-
-  }
+            }
+      }
 
   }
