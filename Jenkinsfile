@@ -7,32 +7,12 @@ pipeline {
   stages {
 
 
-  /*stage('GitCheckOut') {
-      steps{
-        GitCheckOut()
-      }
-    }*/
 
-  /* stage('Maven-Build') {
-      steps{
-        buildMvn()
-      }
-    }*/
-    /*stage('ucd-deploy') {
-      steps{
-        UCDdeploy()
-      }
-    }*/
     stage('test') {
-      steps{
-
+      script {
+        sh "ls -la"
       }
     }
-    /*stage('deployoracle') {
-      steps{
 
-        deployoracle()
-      }
-    }*/
      }
   }
