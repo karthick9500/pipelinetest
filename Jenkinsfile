@@ -21,7 +21,7 @@ pipeline {
             steps {
                 timeout(604800) {
                     script {
-                        input message: 'Do you want to deploy SIT', OK: true, submitter: "admin"
+                        input message: 'Do you want to deploy SIT', OK: true, submitter: "admin2"
                         env.DEPLOY_TO_SIT = 'true'
                     }
                 }
