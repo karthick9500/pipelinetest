@@ -4,17 +4,16 @@ pipeline {
       choice(choices: 'all\nbuild\nDeploy-to-DEV\nDeploy-to-QA\n', description: 'Please select the environment ', name: 'ENV_DEPLOY')
     }
 
-  stages {
+    stages {
 
-steps {
 
-    stage('test') {
-
-      script {
-        sh "ls -la"
+    // Stage 1
+    stage("Init"){
+       steps
+      {
+        sh 'echo "Initialize"'
       }
     }
   }
 
-     }
   }
