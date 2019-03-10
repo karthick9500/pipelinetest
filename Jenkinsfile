@@ -16,17 +16,51 @@ pipeline {
       }
     }
 
-    stage('Approve deployment to SIT') {
+      stage('Deployment to DEV') {
 
             steps {
-                timeout(604800) {
-                    script {
-                        input message: 'Do you want to deploy SIT', OK: true, submitter: "twst@test.com,test"
-                        env.DEPLOY_TO_SIT = 'true'
-                    }
+                script{
+                  println "Deploying to DEV"
+                  println "Done"
                 }
             }
         }
+
+        stage('Approve deployment to QA') {
+          when {
+              environment name: 'ENV_DEPLOY', value: 'Deploy-to-QA'
+          }
+                steps {
+                    timeout(604800) {
+                        script {
+                            input message: 'Do you want to deploy SIT', OK: true, submitter: "twst@test.com,test"
+                            env.DEPLOY_TO_SIT = 'true'
+
+                              println "Deploying to DEV"
+                              println "Done"
+
+                        }
+                    }
+                }
+            }
+
+            stage('Deploy to QA') {
+              when {
+                  environment name: 'DEPLOY_TO_SIT', value: 'true'
+              }
+                    steps {
+
+                            script {
+
+                                  println "Deploying to QA"
+                                  println "Done"
+
+                            }
+                        }
+                    }
+                }
+
+
   }
 
   }
