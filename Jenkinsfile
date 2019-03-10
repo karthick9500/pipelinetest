@@ -12,7 +12,7 @@ pipeline {
        steps
       {
         sh 'echo "Initialize"'
-        sh 'echo ${ENV_DEPLOY}'
+        sh 'echo $ENV_DEPLOY'
       }
     }
   }
