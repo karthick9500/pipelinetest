@@ -15,6 +15,24 @@ pipeline {
         sh 'echo $ENV_DEPLOY'
       }
     }
+
+    stage('Approve deployment to SIT') {
+
+            steps {
+                timeout(604800) {
+                    script {
+                        input message: 'Do you want to deploy SIT', OK: true, submitter: "admin"
+                        env.DEPLOY_TO_SIT = 'true'
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
   }
 
   }
